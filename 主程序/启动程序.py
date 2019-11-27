@@ -11,4 +11,5 @@ def 视图_测试():
 
 if __name__ == "__main__":
     print(全_app.url_map)
+    print('aaa')
     全_app.run(port=80,debug=True,host='0.0.0.0')
