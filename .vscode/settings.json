@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "py3\\Scripts\\python.exe", 
+    "python.autoComplete.extraPaths": [
+        　　　　"py3/Lib/site-packages",
+        　　]
+}

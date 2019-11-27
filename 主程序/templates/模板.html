@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='模板材料/img/favicon.ico')}}" type="{{ url_for('static', filename='模板材料/img/x.ico')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='模板材料/img/favicon.ico')}}" type="{{ url_for('static', filename='模板材料/img/x.ico')}}">
+    <meta name = "format-detection" content = "telephone=no" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <link rel="stylesheet" href="{{ url_for('static', filename='模板材料/css/bootstrap.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='模板材料/css/style.css') }}">
+    {% block links %}
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='模板材料/css/camera.css') }}"> -->
+    {% endblock %}
+    
+	<script src="{{ url_for('static', filename='模板材料/js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery-migrate-1.2.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/superfish.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery.mobilemenu.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery.ui.totop.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery.touchSwipe.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/jquery.equalheights.js') }}"></script>
+    {% block scripts %}
+    {% endblock%}
+    <!--[if lt IE 9]>
+    <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+    <link rel="stylesheet" href="assets/tm/css/tm_docs.css" type="text/css" media="screen">
+    <script src="assets/assets/js/html5shiv.js"></script> 
+    <script src="assets/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!--==============================header=================================-->
+<header id="header">
+      <div class="container">
+        <h1 class="navbar-brand navbar-brand_"><a href="{{ url_for('视图_主页')}}"><img alt="Grill point" src="{{ url_for('static', filename='模板材料/img/logo.png') }}"></a></h1>
+      </div>
+      <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li {% block 主页_class %}{% endblock %}><a href="{{ url_for('视图_主页')}}">主页</a></li>
+                  <li {% block 家庭相册_class %}{% endblock %}><a href="{{ url_for('视图_家庭相册') }}">家庭相册</a></li>
+                  <li {% block 家庭影院_class %}{% endblock %}><a href="{{ url_for('视图_家庭影院') }}">家庭影院</a></li>
+                  <li {% block 家庭书屋_class %}{% endblock %}><a href="{{ url_for('视图_家庭书屋') }}">家庭书屋</a></li>
+                  <li {% block 关于我们_class %}{% endblock %}><a href="{{ url_for('视图_关于我们') }}">关于我们</a></li>
+                  {% if 状态信息=='真' %}
+                  <li {% block 相册提交_class %}{% endblock %}><a href="{{ url_for('视图_相册提交') }}">相册提交</a></li>
+                  {% endif %}
+                </ul>
+            </nav>
+          </div>
+      </div>
+</header>
+
+<!--==============================content=================================-->
+<div id="content">
+    {% block bodys %}
+    {% endblock %}
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <ul class="social_icons clearfix">
+                     <li><a href="#"><img src="{{ url_for('static', filename='模板材料/img/follow_icon1.png') }}" alt=""></a></li>
+                     <li><a href="#"><img src="{{ url_for('static', filename='模板材料/img/follow_icon2.png') }}" alt=""></a></li>
+                     <li><a href="#"><img src="{{ url_for('static', filename='模板材料/img/follow_icon3.png') }}" alt=""></a></li>
+                     <li><a href="#"><img src="{{ url_for('static', filename='模板材料/img/follow_icon4.png') }}" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footerlogo footercol">
+                <a class="smalllogo2 logo" href="{{ url_for('视图_后台登录')}}"><img src="{{ url_for('static', filename='模板材料/img/logofooter.png') }}" alt=""></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <p class="footerpriv">&copy; 2019 &bull; More Templates <a href="http://www.zhuzhiwei-1984.vip/" target="_blank" title="朱志伟">朱志伟</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='模板材料/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='模板材料/js/tm-scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% from '宏.html' import 测试 as ceshi%}
+{{ ceshi() }}
+{% for mes in get_flashed_messages() %}
+    {{mes}}    
+{% endfor %}
