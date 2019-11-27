@@ -1,11 +1,16 @@
 from . import 全_蓝图路由, 全_数据库, 类_相册提交表单
-from flask import render_template
+from flask import render_template, session, redirect, url_for
+import sys
 
 # 主页_路由 = Blueprint('主页_路由',__name__, static_folder='static', template_folder='templates')
 全_相册数据库游标 = 全_数据库['网站数据']['家庭相册']
 
 @全_蓝图路由.route('/相册提交', methods=["GET", "POST"])
 def 视图_相册提交():
+    if not session.get('权限', None):
+        return redirect(url_for('全_蓝图路由.视图_后台登录'))
+        
+
     # 创建表单对象, 如果是post请求,前端发送了数据,flask会吧数据在构造的表单对象的时候,存放到对象中
     相册提交表单 = 类_相册提交表单()
     # 判断相册提交表单中的数据是否合理
@@ -16,7 +21,7 @@ def 视图_相册提交():
         局_字符串 = 相册提交表单.字符串.data
         局_文件 = 相册提交表单.文件.data
         局_文件名 = 局_文件.filename
-        局_文件.save('python/static/家庭相册/'+局_文件名)
+        局_文件.save(sys.path[0]+'/static/家庭相册/'+局_文件名)
         局_插入数据 = { '路径':'家庭相册/'+局_文件名,
                         '说明': 局_字符串,
                         '类别': 相册提交表单.类别.data

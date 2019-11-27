@@ -136,7 +136,7 @@
                         {% for 数据 in 数据表 %}
                         <div class="element transition {% for 类别 in 数据['类别'] %} {{类别}}{% endfor %}" data-category="transition">
                             <a href="{{ url_for('static', filename= 数据['路径']) }}" fileID="{{数据['_id']}}" class="thumb"><figure class="img-polaroid"><img src="{{ url_for('static', filename=数据['路径']) }}" talt="" /></figure></a><span class="description">{{数据['说明']}}</span>
-                            {% if 状态信息=='真' %}
+                            {% if session.权限=='真' %}
                             <a href="/删除相册/{{数据['_id']}}">删除</a>
                             {% endif %}
                         </div>

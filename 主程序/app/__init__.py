@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, AnyOf
 from flask_wtf.file import FileField as File, FileRequired, FileAllowed
 from bson import ObjectId
 import pymongo
+import sys
 全_数据库 = pymongo.MongoClient('192.168.31.220')
 
 class 类_相册提交表单(FlaskForm):
@@ -20,12 +21,12 @@ class 类_后台登录表单(FlaskForm):
     密码 = PasswordField(label='请输入密码', validators=[DataRequired('密码不能为空')])
     登录按钮 = SubmitField('提交')
 
-全_蓝图路由 = Blueprint('全_蓝图路由', __name__)
+全_蓝图路由 = Blueprint('全_蓝图路由', __name__, static_folder=sys.path[0]+'/static', template_folder=sys.path[0]+'/templates')
 
-from .视图_主页 import 视图_主页
-from .视图_家庭相册 import 视图_家庭相册
-from .视图_家庭书屋 import 视图_家庭书屋
-from .视图_家庭影院 import 视图_家庭影院
-from .视图_后台登录 import 视图_后台登录
-from .视图_相册提交 import 视图_相册提交
-from .视图_关于我们 import 视图_关于我们
+from . import 视图_主页 
+from . import 视图_家庭相册
+from . import 视图_家庭书屋
+from . import 视图_家庭影院
+from . import 视图_后台登录
+from . import 视图_相册提交
+from . import 视图_关于我们
