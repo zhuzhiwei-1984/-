@@ -1,3 +1,10 @@
 {% extends "模板.html" %}
 {% block title %} 家庭影院 {% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='模板材料/js/forms.js') }}"></script>
+    <script src="{{ url_for('static', filename='模板材料/js/camera.js') }}"></script>
+        <!--[if (gt IE 9)|!(IE)]><!-->
+            <script src="{{ url_for('static', filename='模板材料/js/jquery.mobile.customized.min.js') }}"></script>
+        <!--<![endif]-->
+{% endblock%}
 {% block 家庭影院_class%} class="active" {% endblock %}

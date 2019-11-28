@@ -1,3 +1,27 @@
 {% extends "模板.html" %}
 {% block title %} 家庭书屋 {% endblock %}
 {% block 家庭书屋_class%} class="active" {% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for('static', filename='模板材料/css/biquge.css') }}">
+{% endblock links %}
+
+{% block bodys %}
+<div class="row_4">
+    <div id="newscontent">
+
+        <div class="l">
+            <ul>
+
+                <li><span class="s1">[修真小说]</span><span class="s2"><a href="http://www.xbiquge.la/23/23793/"
+                            target="_blank">洪荒之证道永生</a></span><span class="s3"><a href="/23/23793/20878474.html"
+                            target="_blank">第七百三十六章 检验成果（求订阅）</a></span><span class="s4">君主制</span></li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock bodys %}
